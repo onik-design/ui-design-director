@@ -2,24 +2,70 @@
 
 [English](README.md) | 中文文档
 
-> 面向中国 B 端（企业级）界面设计的综合设计系统与知识库
+> 一个面向中国 B 端企业界面设计的综合 Skill - 结构化设计知识库，指导 AI 提供专家级设计建议
 
 [![License](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
+[![Skill](https://img.shields.io/badge/Type-Skill-7C3AED.svg)](ui-design-director/SKILL.md)
 [![Documentation](https://img.shields.io/badge/docs-comprehensive-brightgreen.svg)](ui-design-director/SKILL.md)
 
-## 项目概述
+## 这是什么？
 
-**UI Design Director** 是一个文档驱动的设计系统，为创建面向中国用户的数据密集型、效率优先的企业界面提供结构化指南、原则和决策模式。
+**UI Design Director** 是一个 **Skill（技能）** - 一个结构化的设计知识库，让 AI 助手能够充当中国 B 端企业界面的专家设计顾问。
 
-这不是一个组件库或框架 - 而是一个**设计智能系统**，帮助你基于业务数据的语义分析，做出关于布局、组件和视觉层级的明智决策。
+与传统的组件库或框架不同，这是一个**文档驱动的设计系统**，包含：
+- 语义化设计原则（A2UI 方法论）
+- 针对中国用户扫描习惯优化的布局模式
+- 带有明确选择标准的组件决策模板
+- 与中国设计标准对齐的 Tailwind CSS 令牌系统
+- 业务可视化的 ECharts 配置模式
 
-## 核心理念
+**核心价值**：将任何 AI 助手转化为资深的中国 B 端 UI/UX 设计师，能够分析你的业务数据并提供结构化、可执行的设计指导。
 
-**"效率与确定性"**
+## 你将获得什么
+
+当 AI 助手使用此技能时，它会提供：
+
+1. **语义分析** - 业务上下文理解和数据分类
+2. **布局建议** - 页面结构和信息层级策略
+3. **组件映射** - 具体的组件选择和 Tailwind CSS 类名
+4. **图表建议** - 针对业务场景的 ECharts 配置指导
+5. **关键提醒** - 无障碍访问合规和中文排版最佳实践
+
+### 交互示例
+
+```
+你：我有一个订单管理仪表盘，数据如下：
+{
+  "orderId": "ORD-2025-001",
+  "status": "pending_payment",
+  "amount": 156800,
+  "customer": "Acme Corp",
+  "createdAt": "2025-01-20T10:30:00Z",
+  "urgencyLevel": "high"
+}
+
+应该如何设计这个界面？
+
+AI 助手（使用 UI Design Director）：
+[提供语义分析、布局建议、组件映射
+和 Tailwind CSS 实现建议，遵循 3 步方法论]
+```
+
+## 核心设计理念
+
+此技能基于**"效率与确定性"**原则构建：
 
 - **降低认知负荷**：通过语义优先的设计简化决策过程
 - **最大化屏效比**：优化中国 B 端用户的信息密度
 - **意图优于外观**：定义数据的含义，而非外观
+
+### 3 步方法论
+
+使用此技能的 AI 助手遵循结构化流程：
+
+1. **分析意图**（语义层）- 数据在业务上下文中代表什么含义？
+2. **组织布局**（架构层）- 信息应该如何组织？
+3. **精化细节**（视觉层）- 具体实现细节是什么？
 
 ## 核心特性
 
@@ -41,17 +87,71 @@
 ### 5. 决策模板
 组件选择指南，提供在 Badge、Timeline、DescriptionList、Table 等组件之间选择的明确标准。
 
-## 快速开始
+## 实战示例
 
-### 1. 理解角色定位
-阅读 [SKILL.md](ui-design-director/SKILL.md) 了解 3 步设计流程：
-- **分析意图**（语义层）
-- **组织布局**（架构层）
-- **精化细节**（视觉层）
+**用户输入：**
+```
+我需要设计一个服务器监控仪表盘。每台服务器有：
+- 状态（运行中/已停止/错误）
+- CPU 使用率百分比
+- 内存使用情况
+- 最后心跳时间戳
+- 告警级别
+```
 
-### 2. 探索设计原则
-访问 `principles/` 目录：
+**AI 响应（由此技能驱动）：**
 
+```
+1. 语义分析
+   - 业务上下文：实时监控仪表盘，需要快速识别状态
+   - 关键指标：CPU/内存（定量 KPI）
+   - 状态指示器：服务器状态、告警级别（分类状态）
+   - 支持数据：最后心跳（时间戳）
+
+2. 布局建议
+   - 页面结构：基于卡片的网格布局（grid-cols-3 xl:grid-cols-4）
+   - F 型扫描优化：状态徽章放在左上角
+   - 视觉层级：状态 → 指标 → 时间戳
+
+3. 组件映射
+   - 状态：Badge 组件
+     - 运行中 → bg-green-50 text-green-700
+     - 已停止 → bg-gray-100 text-gray-500
+     - 错误 → bg-red-50 text-red-700
+
+   - CPU/内存：进度条配合百分比排版
+     - 容器：h-2 bg-gray-100 rounded-full
+     - 填充：bg-blue-500（安全）/ bg-orange-500（警告）/ bg-red-500（严重）
+     - 文本：text-2xl font-semibold tabular-nums
+
+   - 最后心跳：相对时间戳
+     - 样式：text-sm text-gray-400
+     - 格式："2分钟前"
+
+   - 告警级别：Badge 组件（右上角）
+     - 高 → bg-orange-50 text-orange-700 border-orange-100
+
+4. 实现提示（Tailwind）
+   <div class="grid grid-cols-3 gap-4">
+     <div class="bg-white border border-gray-100 rounded-lg p-4">
+       <div class="flex items-start justify-between mb-3">
+         <span class="bg-green-50 text-green-700 px-2 py-1 rounded text-xs">运行中</span>
+         <span class="bg-orange-50 text-orange-700 px-2 py-1 rounded text-xs">高负载</span>
+       </div>
+       <!-- 指标展示 -->
+     </div>
+   </div>
+```
+
+## 技能架构
+
+此技能以结构化知识库的形式组织：
+
+### 核心文档
+- **[SKILL.md](ui-design-director/SKILL.md)** - 角色定义和工作流方法论
+- **[CLAUDE.md](CLAUDE.md)** - 集成指南和使用说明
+
+### 设计原则（知识库）
 | 文档 | 用途 |
 |------|------|
 | [c01_cn_b_end_layout.md](ui-design-director/principles/c01_cn_b_end_layout.md) | 布局模式、网格系统、F 型扫描 |
@@ -59,12 +159,8 @@
 | [c03_interaction_ux.md](ui-design-director/principles/c03_interaction_ux.md) | 中文排版、微交互、用户体验优化 |
 | [c04_design_tokens.md](ui-design-director/principles/c04_design_tokens.md) | Tailwind CSS 设计令牌、颜色系统、间距 |
 
-### 3. 使用组件模式
-参考 [component_decision_patterns.md](ui-design-director/templates/component_decision_patterns.md) 获取：
-- 组件选择标准
-- ECharts 配置示例
-- 语义颜色映射
-- 无障碍访问指南
+### 决策模板
+- **[component_decision_patterns.md](ui-design-director/templates/component_decision_patterns.md)** - 组件选择指南和 ECharts 模式
 
 ## 设计原则速览
 
@@ -173,22 +269,30 @@ ui-design-director/
 └─────────────────┴──────────────────────┘
 ```
 
-## 何时使用本系统
+## 应用场景
 
-本系统针对**中国 B 端企业界面**优化。适用于：
+此技能针对**中国 B 端企业界面**优化，适用于：
 - 仪表盘和数据可视化平台
 - 管理面板和运营控制台
 - 企业 SaaS 应用
 - 监控和分析工具
 - 商业智能界面
+- 数据密集型管理系统
+
+**典型设计场景：**
+- 设计包含多个 KPI 的管理后台布局
+- 为状态指示器选择合适的组件
+- 组织包含中文文本的复杂数据表格
+- 为时序或分类数据配置 ECharts
+- 在不造成视觉混乱的情况下优化信息密度
 
 ## 何时不使用
 
-以下情况不要使用：
+以下情况可能不适合使用此技能：
 - 项目需要营销/品牌导向设计（非数据密集型）
 - 设计需要大量留白或极简美学
-- 深色模式是主要需求（本系统专注浅色模式）
-- 用户需要 CSS-in-JS 或组件库集成
+- 深色模式是主要需求（本技能专注浅色模式）
+- 需要特定组件库的实现（如 Ant Design、Material-UI 等）
 
 ## 设计验证清单
 
