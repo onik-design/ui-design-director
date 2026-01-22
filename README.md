@@ -2,24 +2,70 @@
 
 [中文文档](README.zh-CN.md) | English
 
-> A comprehensive design system and knowledge base for Chinese B-End (enterprise) interface design.
+> A comprehensive Skill for Chinese B-End (enterprise) interface design - Structured design knowledge base that guides AI to provide expert design recommendations.
 
 [![License](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
+[![Skill](https://img.shields.io/badge/Type-Skill-7C3AED.svg)](ui-design-director/SKILL.md)
 [![Documentation](https://img.shields.io/badge/docs-comprehensive-brightgreen.svg)](ui-design-director/SKILL.md)
 
-## Overview
+## What is This?
 
-**UI Design Director** is a documentation-first design system that provides structured guidelines, principles, and decision-making patterns for creating data-dense, efficiency-focused business interfaces optimized for Chinese users.
+**UI Design Director** is a **Skill** - a structured knowledge base that enables AI assistants to act as expert design advisors for Chinese B-End (enterprise) interfaces.
 
-This is not a component library or framework - it's a **design intelligence system** that helps you make informed decisions about layout, components, and visual hierarchy based on semantic analysis of your business data.
+Unlike traditional component libraries or frameworks, this is a **documentation-first design system** that contains:
+- Semantic design principles (A2UI methodology)
+- Layout patterns optimized for Chinese user scanning behaviors
+- Component decision templates with clear selection criteria
+- Tailwind CSS token system aligned with Chinese design standards
+- ECharts configuration patterns for business visualization
 
-## Core Philosophy
+**Value Proposition**: Transform any AI assistant into a senior Chinese B-End UI/UX designer who can analyze your business data and provide structured, actionable design guidance.
 
-**"Efficiency & Certainty" (效率与确定性)**
+## What You'll Get
+
+When an AI assistant uses this skill, it will provide:
+
+1. **Semantic Analysis** - Business context understanding and data classification
+2. **Layout Recommendations** - Page structure and information hierarchy strategies
+3. **Component Mapping** - Specific component choices with Tailwind CSS classes
+4. **Chart Recommendations** - ECharts configuration guidance for business scenarios
+5. **Critical Reminders** - Accessibility compliance and Chinese typography best practices
+
+### Example Interaction
+
+```
+You: I have an order management dashboard with this data:
+{
+  "orderId": "ORD-2025-001",
+  "status": "pending_payment",
+  "amount": 156800,
+  "customer": "Acme Corp",
+  "createdAt": "2025-01-20T10:30:00Z",
+  "urgencyLevel": "high"
+}
+
+How should I design this interface?
+
+AI Assistant (with UI Design Director):
+[Provides semantic analysis, layout recommendations, component mapping,
+and Tailwind CSS implementation suggestions following the 3-step methodology]
+```
+
+## Core Design Philosophy
+
+This skill is built on **"Efficiency & Certainty" (效率与确定性)**:
 
 - **Reduce Cognitive Load**: Simplify decision-making through semantic-first design
 - **Maximize Screen Efficiency**: Optimize information density for Chinese B-End users
 - **Intent Over Appearance**: Define what data means, not how it looks
+
+### The 3-Step Methodology
+
+AI assistants using this skill follow a structured process:
+
+1. **Analyze Intent** (Semantic Layer) - What does the data mean in business context?
+2. **Structure Layout** (Architecture Layer) - How should information be organized?
+3. **Refine Details** (Visual Layer) - What are the specific implementation details?
 
 ## Key Features
 
@@ -41,17 +87,71 @@ Pre-configured patterns for common business charts with semantic color mapping.
 ### 5. Decision Templates
 Component selection guides with clear criteria for choosing between Badge, Timeline, DescriptionList, Table, and more.
 
-## Quick Start
+## Real-World Example
 
-### 1. Understand the Role
-Read [SKILL.md](ui-design-director/SKILL.md) to understand the 3-step design process:
-- **Analyze Intent** (Semantic Layer)
-- **Structure Layout** (Architecture Layer)
-- **Refine Details** (Visual Layer)
+**User Input:**
+```
+I need to design a server monitoring dashboard. Each server has:
+- status (running/stopped/error)
+- CPU usage percentage
+- memory usage
+- last heartbeat timestamp
+- alert level
+```
 
-### 2. Explore Design Principles
-Navigate to the `principles/` directory:
+**AI Response (Powered by This Skill):**
 
+```
+1. Semantic Analysis
+   - Business Context: Real-time monitoring dashboard requiring quick status identification
+   - Key Metrics: CPU/Memory (quantitative KPIs)
+   - Status Indicators: Server status, alert level (categorical states)
+   - Supporting Data: Last heartbeat (timestamp)
+
+2. Layout Recommendation
+   - Page Structure: Card-based grid layout (grid-cols-3 xl:grid-cols-4)
+   - F-Pattern optimization: Status badge in top-left corner
+   - Visual Hierarchy: Status → Metrics → Timestamp
+
+3. Component Mapping
+   - status: Badge component
+     - running → bg-green-50 text-green-700
+     - stopped → bg-gray-100 text-gray-500
+     - error → bg-red-50 text-red-700
+
+   - CPU/Memory: Progress bar with percentage typography
+     - Container: h-2 bg-gray-100 rounded-full
+     - Fill: bg-blue-500 (safe) / bg-orange-500 (warning) / bg-red-500 (critical)
+     - Text: text-2xl font-semibold tabular-nums
+
+   - lastHeartbeat: Relative timestamp
+     - Style: text-sm text-gray-400
+     - Format: "2分钟前" (2 minutes ago)
+
+   - alertLevel: Badge component (top-right corner)
+     - high → bg-orange-50 text-orange-700 border-orange-100
+
+4. Implementation Hint (Tailwind)
+   <div class="grid grid-cols-3 gap-4">
+     <div class="bg-white border border-gray-100 rounded-lg p-4">
+       <div class="flex items-start justify-between mb-3">
+         <span class="bg-green-50 text-green-700 px-2 py-1 rounded text-xs">运行中</span>
+         <span class="bg-orange-50 text-orange-700 px-2 py-1 rounded text-xs">高负载</span>
+       </div>
+       <!-- Metrics here -->
+     </div>
+   </div>
+```
+
+## Skill Architecture
+
+This skill is organized as a structured knowledge base:
+
+### Core Documents
+- **[SKILL.md](ui-design-director/SKILL.md)** - Role definition and workflow methodology
+- **[CLAUDE.md](CLAUDE.md)** - Integration guide and usage instructions
+
+### Design Principles (Knowledge Base)
 | Document | Purpose |
 |----------|---------|
 | [c01_cn_b_end_layout.md](ui-design-director/principles/c01_cn_b_end_layout.md) | Layout patterns, grid system, F-pattern scanning |
@@ -59,12 +159,8 @@ Navigate to the `principles/` directory:
 | [c03_interaction_ux.md](ui-design-director/principles/c03_interaction_ux.md) | Chinese typography, micro-interactions, UX polish |
 | [c04_design_tokens.md](ui-design-director/principles/c04_design_tokens.md) | Tailwind CSS tokens, color system, spacing |
 
-### 3. Use Component Patterns
-Refer to [component_decision_patterns.md](ui-design-director/templates/component_decision_patterns.md) for:
-- Component selection criteria
-- ECharts configuration examples
-- Semantic color mapping
-- Accessibility guidelines
+### Decision Templates
+- **[component_decision_patterns.md](ui-design-director/templates/component_decision_patterns.md)** - Component selection guide and ECharts patterns
 
 ## Design Principles at a Glance
 
@@ -173,22 +269,30 @@ ui-design-director/
 └─────────────────┴──────────────────────┘
 ```
 
-## When to Use This System
+## Use Cases
 
-This system is optimized for **Chinese B-End enterprise interfaces**. Ideal for:
+This skill is optimized for **Chinese B-End enterprise interfaces**, including:
 - Dashboard and data visualization platforms
 - Admin panels and operation consoles
 - Enterprise SaaS applications
 - Monitoring and analytics tools
 - Business intelligence interfaces
+- Data-dense management systems
+
+**Typical Design Scenarios:**
+- Designing admin dashboard layouts with multiple KPIs
+- Selecting appropriate components for status indicators
+- Organizing complex data tables with Chinese text
+- Configuring ECharts for time-series or categorical data
+- Optimizing information density without creating visual chaos
 
 ## When NOT to Use
 
-Do NOT use if:
+This skill may not be suitable if:
 - The project requires marketing/brand-focused design (not data-dense)
 - The design needs extensive whitespace or minimal aesthetics
 - Dark mode is a primary requirement (this focuses on light mode)
-- The user needs CSS-in-JS or component library integration
+- You need component library-specific implementation (Ant Design, Material-UI, etc.)
 
 ## Design Validation Checklist
 
