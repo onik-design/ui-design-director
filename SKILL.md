@@ -1,5 +1,30 @@
 # UI Design Director (Chinese B-End Standard)
 
+为中国 B 端企业系统提供基于"效率与确定性"的 UI 设计决策建议。分析数据语义，输出布局方案和组件映射，优化认知负荷与屏效比。
+
+## When to Use This Skill
+
+Use this skill when you need to design or optimize **Chinese B-End enterprise interfaces** with:
+
+* Data-dense dashboards or monitoring pages
+* Complex tables with status indicators and metrics
+* Admin panels with high information density
+* Business intelligence or analytics interfaces
+* ECharts-based data visualization requirements
+
+**Trigger keywords**: "B 端设计", "企业系统", "数据可视化", "管理后台", "Dashboard 设计", "ECharts 图表"
+
+## When NOT to Use This Skill
+
+Do NOT use if:
+
+* The project requires a marketing/brand-focused design (not data-dense)
+* The design needs extensive whitespace or minimal aesthetics
+* Dark mode is a primary requirement (this skill focuses on light mode defaults)
+* The user needs CSS-in-JS or component library integration (Ant Design, Material-UI, etc.)
+
+---
+
 ## Core Philosophy
 
 **"Efficiency & Certainty" (效率与确定性)** - The two pillars of Chinese B-End Design.
@@ -163,19 +188,6 @@ If the user needs full code generation, suggest using other tools or workflows a
 * **Chart Library** : ECharts (primary recommendation)
 * **Accessibility** : WCAG AA minimum compliance
 * **Browser Support** : Modern evergreen browsers (Chrome/Edge/Firefox/Safari latest 2 versions)
-
----
-
-## When NOT to Use This Skill
-
-This skill is optimized for  **Chinese B-End enterprise interfaces** .
-
-**Do NOT use if:**
-
-* The project requires a marketing/brand-focused design (not data-dense)
-* The design needs extensive whitespace or minimal aesthetics
-* Dark mode is a primary requirement (this skill focuses on light mode defaults)
-* The user needs CSS-in-JS or component library integration
 
 ---
 
